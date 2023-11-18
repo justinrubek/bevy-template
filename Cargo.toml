@@ -1,0 +1,47 @@
+[workspace]
+members = ["crates/*"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+homepage = "https://github.com/justinrubek/bevy-template" # TODO: change this
+repository = "https://github.com/justinrubek/bevy-template" # TODO: change this
+authors = ["Justin Rubek"]
+
+[workspace.dependencies]
+bevy = { version = "0.12", default-features = false, features = [
+    "animation",
+    "bevy_asset",
+    "bevy_gilrs",
+    "bevy_scene",
+    "bevy_winit",
+    "bevy_core_pipeline",
+    "bevy_pbr",
+    "bevy_gltf",
+    "bevy_render",
+    "bevy_sprite",
+    "bevy_text",
+    "bevy_ui",
+    "multi-threaded",
+    "png",
+    "hdr",
+    "x11",
+    "bevy_gizmos",
+    "tonemapping_luts",
+    "default_font",
+    "webgl2",
+] }
+bevy_kira_audio = { version = "0.18" }
+bevy_asset_loader = { version = "0.18" }
+
+[profile.release]
+opt-level = 2 # fast and small wasm
+
+[profile.wasm-release]
+inherits = "release"
+
+opt-level = "z"
+lto = "fat"
+codegen-units = 1
