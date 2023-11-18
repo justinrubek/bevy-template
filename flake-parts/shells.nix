@@ -23,7 +23,7 @@
   in {
     devShells = {
       default = pkgs.mkShell rec {
-        packages = devTools ++ cargoExtraPackages ++ ciPackages;
+        packages = devTools ++ cargoExtraPackages ++ ciPackages ++ bevyDependencies;
         buildInputs = bevyDependencies;
 
         LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath packages;
