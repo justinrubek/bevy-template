@@ -1,4 +1,5 @@
 use crate::plugins::{initialization::InitializationPlugin, menu::MenuPlugin};
+#[cfg(debug_assertions)]
 use bevy::diagnostic::{FrameTimeDiagnosticsPlugin, LogDiagnosticsPlugin};
 use bevy::prelude::*;
 use plugins::input::InputPlugin;
